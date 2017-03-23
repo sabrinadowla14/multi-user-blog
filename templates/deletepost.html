@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="col-md-12">
+            
+            
+                <div class="delete-post">
+                    <p>Post deleted by {{username}} !!!</p>
+                </div>
+            
+        </div>
+		{{post.render() | safe}}
+    </div>
+
+{% endblock %}

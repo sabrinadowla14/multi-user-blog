@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Update post</h2>
+
+    <form method="post">
+      <label>
+        Subject
+        <input type="text" name="subject" value="{{subject}}">
+      </label>
+
+      <label>
+        Content
+        <textarea name="content">{{content}}</textarea>
+      </label>
+
+      <div class="error">{{error}}</div>
+
+      <input type="submit">
+	  <input type="submit" id = "cancel" value="Cancel" onclick="window.location='/blog/updatepost/{{post.key().id()}}'; return false;">
+    </form>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+ 
+		<div class = "editDelpost">
+            <a class="btn" href="/blog/updatepost/{{post.key().id()}}">Edit Post</a>
+	        <a class="btn" href="/blog/deletepost/{{post.key().id()}}">Delete Post</a>
+	    </div>
+         {{post.render() | safe}}
+   
+
+    <div class="row">
+	    <div class="col-md-4">
+		 
+                <div class="error">
+                
+                    {{error}}
+                </div>
+           
+        </div>
+		 <div class="col-md-4 emptyBox">
+		 
+                
+           
+        </div>
+		
+        <div class="col-md-6">
+            <form method="post">
+                <input type="hidden" class="btnLike" name="like" value="update">
+                <button type="submit" class="btn pull-right">👍 {{likeCount}}</button>
+            </form>
+        </div>
+    </div>
+	 <div class = "row">	
+           <div class="col-md-12">
+            <form method="post">
+                <label>Comment:</label>
+				<div class="form-group">
+                <input type="text" class="comment" name="comment" value="">
+	            <button type="submit" class="btn">Comment</button>
+				</div>
+            </form>
+       </div>
+	</div>
+	<br>
+    <div class="row">
+	    <div class="col-md-12">
+         {% for c in comments %}
+            <blockquote>
+                <a class="comment-delete" href="/blog/{{post.key().id()}}/{{c.key().id()}}/deletecomment">Delete</a>
+                <a class="comment-edit" href="/blog/{{post.key().id()}}/{{c.key().id()}}/editcomment">Edit</a>
+                <p>{{ c.comment }} by {{ c.userName()}} </p>
+			</blockquote>
+            {% endfor %}   
+        </div>
+    </div>
+{% endblock %}

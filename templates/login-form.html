@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2> Login</h2>
+    <form method="post">
+      <div class="container">
+    <label><b>Username</b></label>
+	<input type="text" name="username" value="{{username}}">
+
+    <label><b>Password</b></label>
+   	<input type="password" name="password" value="">
+	
+      <div class="error">
+        {{error}}
+      </div>
+	  <br>
+      <div class="clearfix">
+	  <input type="submit" class="btn btn-info" value="Login">
+	  <input type="submit" class="btn btn-info" value="Cancel" onclick="window.location='/blog'; return false;">
+	  </div>
+	 </div>
+    </form>
+{% endblock %}
